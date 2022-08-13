@@ -23,7 +23,7 @@ runs:
   using: composite
   steps:
     - name: Install docker and docker-compose
-      uses: darklabsbr/ssh-action@v1
+      uses: darklabsbr/ssh-action@v1.1
       with:
         ssh_host: ${{ inputs.ssh_host }}
         ssh_user: ${{ inputs.ssh_user }}
@@ -70,7 +70,7 @@ runs:
 
     - name: Check if reboot is needed
       id: check_reboot
-      uses: darklabsbr/ssh-action@v1
+      uses: darklabsbr/ssh-action@v1.1
       with:
         ssh_host: ${{ inputs.ssh_host }}
         ssh_user: ${{ inputs.ssh_user }}
@@ -79,7 +79,7 @@ runs:
 
     - name: Reboot the server if necessary
       if: steps.check_reboot.outputs.output == 'install_docker_action'
-      uses: darklabsbr/ssh-action@v1
+      uses: darklabsbr/ssh-action@v1.1
       with:
         ssh_host: ${{ inputs.ssh_host }}
         ssh_user: ${{ inputs.ssh_user }}
